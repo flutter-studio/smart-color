@@ -1,14 +1,21 @@
 # smart_color
 
-A new Flutter package.
+[![pub package](https://img.shields.io/pub/v/smart_color.svg)](https://pub.dartlang.org/packages/smart_color)
 
-## Getting Started
+A smart color  package
 
-This project is a starting point for a Dart
-[package](https://flutter.io/developing-packages/),
-a library module containing code that can be shared easily across
-multiple Flutter or Dart projects.
+## Usage
+To use this plugin, add `smart_color` as a [dependency in your pubspec.yaml file](https://flutter.io/platform-plugins/).
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.io/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+## Example
+
+``` dart
+// Import package
+import 'package:flutter_icons/flutter_icons.dart';
+import 'package:flutter/material.dart';
+
+SmartColor.parse("#ffffff");
+SmartColor.parse("white");
+SmartColor.parse("rgb(0,0,0)")
+SmartColor.parse("rgba(0,0,0,.5)")
+```
