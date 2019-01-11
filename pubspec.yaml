@@ -1,5 +1,5 @@
 name: smart_color
-description: A smart color  package.
+description: This is a package used to convert strings to flutter colors, along with all ant design colors
 version: 0.1.1
 author: flutter-studio<2534290808@qq.com>
 homepage: https://github.com/flutter-studio/smart-color.git
