@@ -2,7 +2,7 @@
 
 [![pub package](https://img.shields.io/pub/v/smart_color.svg)](https://pub.dartlang.org/packages/smart_color)
 
-A smart color  package
+A smart color  package, All [ant design colors](https://ant.design/docs/spec/colors-cn) are included in the plugin
 
 ## Usage
 To use this plugin, add `smart_color` as a [dependency in your pubspec.yaml file](https://flutter.io/platform-plugins/).
