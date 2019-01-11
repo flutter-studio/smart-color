@@ -4,6 +4,8 @@ import 'dart:ui';
 import 'dart:core';
 import 'package:pigment/pigment.dart'; //依赖于pigment插件
 
+export 'package:pigment/pigment.dart' show CSSColor;
+
 /// 智能的颜色类
 class SmartColor {
   ///颜色解析
