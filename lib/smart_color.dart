@@ -1,8 +1,11 @@
+///******************************************************************
+///Copyright 2019 The Lmy Authors. All rights reserved.
+/// *****************************************************************
 library smart_color;
 
 import 'dart:ui';
 import 'dart:core';
-import 'package:pigment/pigment.dart'; //依赖于pigment插件
+import 'package:pigment/pigment.dart'; ///依赖于pigment插件
 
 export 'package:pigment/pigment.dart' show CSSColor;
 
