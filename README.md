@@ -24,6 +24,12 @@ SmartColor.antDColor(Color(0xFFf5222d)).shade2; //获取2色色号颜色值
 SmartColor.antDColor(Color(0xFFf5222d)).shade3; //获取3色色号颜色值
 ...
 SmartColor.antDColor(Color(0xFFf5222d)).shade6; //6色色号颜色值和主色值一样，即和SmartColor.antDColor(Color(0xFFf5222d))颜色一样
+
 ...
+//一些常用的颜色已经在库中进行定义了
+SmartColor.red;
+SmartColor.red.shade1;
+SmartColor.green;
+SmartColor.green.shade1;
 
 ```
