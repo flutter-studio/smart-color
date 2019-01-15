@@ -5,19 +5,45 @@ library smart_color;
 
 import 'dart:ui';
 import 'dart:core';
-import 'package:pigment/pigment.dart'; ///依赖于pigment插件
+import 'package:flutter/painting.dart';
+import 'package:pigment/pigment.dart';
+import 'package:flutter/material.dart';
 
+///依赖于pigment插件
 export 'package:pigment/pigment.dart' show CSSColor;
 
 /// 智能的颜色类
 class SmartColor {
   ///颜色解析
-  static Color parse(String color) {
-    return _getColor(color);
+  static Color parse(String color) => _getColor(color);
+
+  ///解析cssColor
+  static Color parseCssColor(CSSColor color) => Pigment.fromCSSColor(color);
+
+  /// 得到蚂蚁金服颜色
+  /// 通过一个基本色，获取十种不同的颜色
+  static AntDesignColor antDColor(Color color) {
+    Map<int, Color> colors = Map<int, Color>();
+    for (int i = 1; i <= 10; i++) {
+      colors[i] = SmartColor._makeAntDColor(color, i);
+    }
+    return AntDesignColor(color.value, colors);
   }
 
-  static Color parseCssColor(CSSColor color) {
-    return Pigment.fromCSSColor(color);
+  ///制作蚂蚁金服颜色
+  ///color: 基本颜色
+  ///index：主色色号 范围为[1,10]
+  static Color _makeAntDColor(Color color, int index) {
+    bool isLight = index <= 6;
+    HSVColor hsv = HSVColor.fromColor(color);
+    int lightColorCount = 5;
+    var i = isLight ? lightColorCount + 1 - index : index - lightColorCount - 1;
+    return HSVColor.fromAHSV(
+      1,
+      _getHue(hsv, i, isLight),
+      _getSaturation(hsv, i, isLight),
+      _getValue(hsv, i, isLight),
+    ).toColor();
   }
 
   ///将字符串转换为颜色
@@ -219,4 +245,77 @@ class SmartColor {
   static Color grey8 = Color(0xff595959);
   static Color grey9 = Color(0xff262626);
   static Color grey10 = Color(0xff000000);
+}
+
+/// 定义蚂蚁金服色彩类
+class AntDesignColor extends ColorSwatch<int> {
+  const AntDesignColor(int primary, Map<int, Color> swatch)
+      : super(primary, swatch);
+  Color get shade1 => this[1];
+  Color get shade2 => this[2];
+  Color get shade3 => this[3];
+  Color get shade4 => this[4];
+  Color get shade5 => this[5];
+  Color get shade6 => this[6];
+  Color get shade7 => this[7];
+  Color get shade8 => this[8];
+  Color get shade9 => this[9];
+  Color get shade10 => this[10];
+}
+
+///getHue 获取色相渐变
+double _getHue(HSVColor hsv, int i, bool isLight) {
+  double hue;
+  int hueStep = 2;
+  if (hsv.hue >= 60 && hsv.hue <= 240) {
+    hue = isLight == true ? hsv.hue - hueStep * i : hsv.hue + hueStep * i;
+  } else {
+    hue = isLight == true ? hsv.hue + hueStep * i : hsv.hue - hueStep * i;
+  }
+  if (hue < 0) {
+    hue += 360;
+  } else if (hue >= 360) {
+    hue -= 360;
+  }
+  return hue.round().toDouble();
+}
+
+///getSaturation 获取饱和度渐变
+double _getSaturation(HSVColor hsv, int i, bool isLight) {
+  int saturation;
+  int saturationStep = 16;
+  int saturationStep2 = 5;
+  int darkColorCount = 4;
+  var lightColorCount = 5;
+  if (isLight == true) {
+    saturation = (hsv.saturation * 100).round() - saturationStep * i;
+  } else if (i == darkColorCount) {
+    saturation = (hsv.saturation * 100).round() + saturationStep;
+  } else {
+    saturation = (hsv.saturation * 100).round() + saturationStep2 * i;
+  }
+  if (saturation > 100) {
+    saturation = 100;
+  }
+  if (isLight == true && i == lightColorCount && saturation > 10) {
+    saturation = 10;
+  }
+  if (saturation < 6) {
+    saturation = 6;
+  }
+  return saturation.toDouble() / 100;
+}
+
+/// getValue 获取明度渐变
+double _getValue(HSVColor hsv, int i, bool isLight) {
+  int brightnessStep1 = 5;
+  int brightnessStep2 = 15;
+  if (isLight == true) {
+    return (((hsv.value * 100).round() + brightnessStep1 * i) > 100
+                ? 100
+                : ((hsv.value * 100).round() + brightnessStep1 * i))
+            .toDouble() /
+        100;
+  }
+  return ((hsv.value * 100).round() - brightnessStep2 * i).toDouble() / 100;
 }
