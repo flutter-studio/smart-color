@@ -85,18 +85,68 @@ class _MyHomePageState extends State<MyHomePage> {
           // axis because Columns are vertical (the cross axis would be
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
-         children: <Widget>[
-           Text("sdfsf",style: TextStyle(color: SmartColor.antDColor(Color(0xFFf5222d)).shade1),),
-           Text("sdfsf",style: TextStyle(color: SmartColor.antDColor(Color(0xFFf5222d)).shade2),),
-           Text("sdfsf",style: TextStyle(color: SmartColor.antDColor(Color(0xFFf5222d)).shade3),),
-           Text("sdfsf",style: TextStyle(color: SmartColor.antDColor(Color(0xFFf5222d)).shade4),),
-           Text("sdfsf",style: TextStyle(color: SmartColor.antDColor(Color(0xFFf5222d)).shade5),),
-           Text("sdfsf",style: TextStyle(color: SmartColor.antDColor(Color(0xFFf5222d))),),
-           Text("sdfsf",style: TextStyle(color: SmartColor.antDColor(Color(0xFFf5222d)).shade7),),
-           Text("sdfsf",style: TextStyle(color: SmartColor.antDColor(Color(0xFFf5222d)).shade8),),
-           Text("sdfsf",style: TextStyle(color: SmartColor.antDColor(Color(0xFFf5222d)).shade9),),
-           Text("sdfsf",style: TextStyle(color: SmartColor.antDColor(Color(0xFFf5222d)).shade10),),
-         ],
+          children: <Widget>[
+            Text(
+              "sdfsf",
+              style: TextStyle(
+                color: SmartColor.red.shade1,
+              ),
+            ),
+            Text(
+              "sdfsf",
+              style: TextStyle(
+                color: SmartColor.red.shade2,
+              ),
+            ),
+            Text(
+              "sdfsf",
+              style: TextStyle(
+                color: SmartColor.red.shade3,
+              ),
+            ),
+            Text(
+              "sdfsf",
+              style: TextStyle(
+                color: SmartColor.red.shade4,
+              ),
+            ),
+            Text(
+              "sdfsf",
+              style: TextStyle(
+                color: SmartColor.red.shade5,
+              ),
+            ),
+            Text(
+              "sdfsf",
+              style: TextStyle(
+                color: SmartColor.red,
+              ),
+            ),
+            Text(
+              "sdfsf",
+              style: TextStyle(
+                color: SmartColor.red.shade7,
+              ),
+            ),
+            Text(
+              "sdfsf",
+              style: TextStyle(
+                color: SmartColor.red.shade8,
+              ),
+            ),
+            Text(
+              "sdfsf",
+              style: TextStyle(
+                color: SmartColor.red.shade9,
+              ),
+            ),
+            Text(
+              "sdfsf",
+              style: TextStyle(
+                color: SmartColor.red.shade10,
+              ),
+            ),
+          ],
         ),
       ),
     );
