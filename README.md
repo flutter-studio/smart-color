@@ -1,3 +1,6 @@
+
+English | [`简体中文`](./README_zh-CN.md)
+
 # smart_color
 
 [![pub package](https://img.shields.io/pub/v/smart_color.svg)](https://pub.dartlang.org/packages/smart_color)
@@ -18,15 +21,15 @@ SmartColor.parse("#ffffff");
 SmartColor.parse("white");
 SmartColor.parse("rgb(0,0,0)")
 SmartColor.parse("rgba(0,0,0,.5)")
-SmartColor.antDColor(Color(0xFFf5222d)); //得到蚂蚁金服颜色，通过一个基色可以得到十种不同的颜色
-SmartColor.antDColor(Color(0xFFf5222d)).shade1; //获取1色色号颜色值
-SmartColor.antDColor(Color(0xFFf5222d)).shade2; //获取2色色号颜色值
-SmartColor.antDColor(Color(0xFFf5222d)).shade3; //获取3色色号颜色值
+SmartColor.antDColor(Color(0xFFf5222d)); //To get the color of ant design, you can get ten different colors from one base color
+SmartColor.antDColor(Color(0xFFf5222d)).shade1; //Gets color 1
+SmartColor.antDColor(Color(0xFFf5222d)).shade2; //Gets color 2
+SmartColor.antDColor(Color(0xFFf5222d)).shade3; //Gets color 3
 ...
-SmartColor.antDColor(Color(0xFFf5222d)).shade6; //6色色号颜色值和主色值一样，即和SmartColor.antDColor(Color(0xFFf5222d))颜色一样
+SmartColor.antDColor(Color(0xFFf5222d)).shade6; //Gets color 6, which is the same as the base color
 
 ...
-//一些常用的颜色已经在库中进行定义了
+//Some common colors are already defined in the library
 SmartColor.red;
 SmartColor.red.shade1;
 SmartColor.green;
