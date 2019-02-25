@@ -9,6 +9,8 @@ ios/.generated/
 ios/Flutter/Generated.xcconfig
 ios/Runner/GeneratedPluginRegistrant.*
 
-android/
+**/android/local.properties
+**/android/**/GeneratedPluginRegistrant.java
+
 node_modules/
 package-lock.json
