@@ -20,6 +20,14 @@ class SmartColor {
   ///解析cssColor
   static Color parseCssColor(CSSColor color) => Pigment.fromCSSColor(color);
 
+  /// 用以判断是否适合蚂蚁金服颜色设计
+  /// 建议颜色的亮度大于70，颜色的饱和度大于70
+  static bool suitAntDesign(Color color){
+    HSLColor hslColor = HSLColor.fromColor(color);
+    // flutter 中的饱和度和亮度为0到1范围
+    return hslColor.lightness*100 >= 70 && hslColor.saturation*100 >=70;
+  }
+
   /// 得到蚂蚁金服颜色
   /// 通过一个基本色，获取十种不同的颜色
   static AntDesignColor antDColor(Color color) {
